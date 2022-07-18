@@ -1,8 +1,7 @@
 from django import template
-from django_quasar import CSS_QUASAR_111, JS_QUASAR_111
+from django_quasar import CSS_QUASAR_111, JS_QUASAR_111, CSS_QUASAR_27, JS_QUASAR_27
 
 register = template.Library()
-
 
 @register.inclusion_tag('django_quasar/tags/quasar_css.html', takes_context=True)
 def quasar_css_111(context):
@@ -10,19 +9,29 @@ def quasar_css_111(context):
         'css_file': CSS_QUASAR_111
     }
 
-
-@register.inclusion_tag('django_quasar/tags/quasar_css.html', takes_context=True)
-def quasar_css(context):
-    return quasar_css_111(context)
-
-
 @register.inclusion_tag('django_quasar/tags/quasar_js.html', takes_context=True)
-def quasar_js_19(context):
+def quasar_js_111(context):
     return {
         'js_file': JS_QUASAR_111
     }
 
+@register.inclusion_tag('django_quasar/tags/quasar_css.html', takes_context=True)
+def quasar_css_27(context):
+    return {
+        'css_file': CSS_QUASAR_27
+    }
+
+@register.inclusion_tag('django_quasar/tags/quasar_js.html', takes_context=True)
+def quasar_js_27(context):
+    return {
+        'js_file': JS_QUASAR_27
+    }
+
+@register.inclusion_tag('django_quasar/tags/quasar_css.html', takes_context=True)
+def quasar_css(context):
+    return quasar_css_27(context)
+
 
 @register.inclusion_tag('django_quasar/tags/quasar_js.html', takes_context=True)
 def quasar_js(context):
-    return quasar_js_19(context)
+    return quasar_js_27(context)
